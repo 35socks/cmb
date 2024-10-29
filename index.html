@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Cameron Bell</title>
+    <script src="https://kit.fontawesome.com/c4f218aa74.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'OpenSauce';
+            src: url('/fonts/osobold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Typewriter';
+            src: url('/fonts/typewriter.ttf') format('truetype');
+        }
+        body {
+            font-family: 'OpenSauce', sans-serif;
+            background: radial-gradient(circle at top left, #0a0e1a, #040611);
+            color: #e0e0e0;
+        }
+        .minor {
+            font-family: 'Typewriter', monospace;
+        }
+        .glass-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .header-glass {
+            background: rgba(10, 14, 26, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 40;
+        }
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 14, 26, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 50;
+            backdrop-filter: blur(5px);
+        }
+        .loading-wheel {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .header-links {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .header-links:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            animation: slide-in 0.3s ease forwards;
+        }
+        @keyframes slide-in {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .slide-up {
+            animation: slideUp 0.5s ease forwards;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+        .profile-img {
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        a {
+            color: inherit;
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+        }
+        a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-wheel"></div>
+        <div class="loading-text">
+            <div id="loading-message" class="text-2xl text-white pb-3">Just loading some things...</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <!-- Header -->
+        <header class="header-glass p-6 text-center mb-8">
+            <nav class="flex justify-center space-x-10 text-xl">
+                <a href="/" class="header-links hover:text-gray-400">About Me</a>
+                <a href="/work" class="header-links hover:text-gray-400">My Work</a>
+                <a href="mailto:cameron.bell@pikd.nl" class="header-links hover:text-gray-400">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main Section -->
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Left column: Profile Picture & Basic Info -->
+                <div class="md:w-1/3">
+                    <div class="glass-container p-8">
+                        <div class="flex flex-col items-center md:items-start">
+                            <img src="https://avatars.githubusercontent.com/u/132098618?v=4" alt="Cameron Bell" class="profile-img mb-6">
+                            <p class="text-lg mb-4">Cameron Bell</p>
+                            <p class="text-lg mb-4">they/them</p>
+                            <div class="space-y-4 w-full">
+                                <p class="text-lg"><i class="fa-solid fa-language w-6"></i> English, Dutch</p>
+                                <p class="text-lg"><i class="fa-solid fa-clock w-6"></i> <span id="age"></span> years old</p>
+                                <p class="text-lg"><i class="fa-solid fa-location-dot w-6"></i> Prestwick, Scotland</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right column: Additional Info -->
+                <div class="md:w-2/3 space-y-8">
+                    <div class="glass-container p-8">
+                        <h1 class="text-4xl mb-6">About Me</h1>
+                        <p class="text-lg mb-4">Hi! I'm Cameron Bell, a <span class="age"></span> year old from Prestwick, Scotland. I make music under the alias <a href="https://rayennoth.com">Rayen Noth</a>. I also study Film and Media at Ayrshire College.</p>
+                        <p class="text-lg">I love coding, especially websites. I have worked on several websites personally and for clients using PHP, HTML, JavaScript, CSS.</p>
+                    </div>
+
+                    <div class="glass-container p-8">
+                        <h2 class="text-3xl mb-6">Work Experience</h2>
+                        <p class="text-lg mb-4">I run a record label by the name of <a href="https://pikd.nl">PIKD</a> which I founded in 2024 where I manage artists, coordinate releases, and have managed to secure a distribution deal with Sony's AWAL.</p>
+                        <p class="text-lg mb-4">I've managed several talented artists such as <a href="https://counterfeitghost.com">Counterfeit Ghost</a>, by promoting their music to a wide audience, getting them featured on BBC Radio Scotland and they have even been featured in the Scottish Alternative Music Awards.</p>
+                        <p class="text-lg mb-4">In the past, I've also ran several companies:</p>
+                        <ul class="text-lg space-y-2 list-disc list-inside">
+                            <li><a href="https://pikd.nl">PIKD</a> &ndash; 2024 to Current</li>
+                            <li><a href="https://luminescent.uk">Luminescent Records</a> &ndash; 2023 to Current</li>
+                            <li><a href="https://sites.google.com/view/newcrazerecords/">New Craze Records</a> &ndash; 2022 to 2023</li>
+                            <li>IBU Media &ndash; 2020 to 2021</li>
+                            <li><a href="https://sites.google.com/view/vogamusicrecords/home">VOGAMUSICRECORDS</a> &ndash; 2018 to 2022</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Change loading messages
+        const loadingMessage = document.getElementById('loading-message');
+        setTimeout(() => loadingMessage.textContent = "Making some pasta, will be right there", 2000);
+
+        // Simulate loading of assets
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('slide-up');
+                document.getElementById('main-content').classList.remove('hidden');
+            }, 4000);
+        };
+
+        // Calculate age
+        const birthDate = new Date(2009, 11, 14);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        // Update all elements that need the age
+        document.querySelectorAll('#age, .age').forEach(el => {
+            el.textContent = age;
+        });
+    </script>
+</body>
+</html>
