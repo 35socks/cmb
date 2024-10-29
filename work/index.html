@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Cameron Bell - My Work</title>
+    <script src="https://kit.fontawesome.com/c4f218aa74.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'OpenSauce';
+            src: url('/fonts/osobold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Typewriter';
+            src: url('/fonts/typewriter.ttf') format('truetype');
+        }
+        body {
+            font-family: 'OpenSauce', sans-serif;
+            background: radial-gradient(circle at top left, #0a0e1a, #040611);
+            color: #e0e0e0;
+        }
+        .glass-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.2);
+        }
+        .header-glass {
+            background: rgba(10, 14, 26, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 40;
+        }
+        .header-links {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .header-links:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            animation: slide-in 0.3s ease forwards;
+        }
+        @keyframes slide-in {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        a {
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+        a:hover {
+            opacity: 0.8;
+        }
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            transition: background-color 0.3s ease;
+        }
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Header -->
+        <header class="header-glass p-6 text-center mb-8">
+            <nav class="flex justify-center space-x-10 text-xl">
+                <a href="/" class="header-links hover:text-gray-400">About Me</a>
+                <a href="/work" class="header-links hover:text-gray-400">My Work</a>
+                <a href="mailto:cameron.bell@pikd.nl" class="header-links hover:text-gray-400">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main Section -->
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-4xl mb-8">My Work</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- BreadZ VR -->
+                <div class="glass-container p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl">BreadzVR</h2>
+                        <a href="https://breadzvr.com" target="_blank" rel="noopener noreferrer" class="text-sm tag">
+                            <i class="fa-solid fa-link mr-2"></i>Visit Site
+                        </a>
+                    </div>
+                    <p class="mb-4">Developer and video editor for BreadzVR, creating engaging VR content and maintaining their web presence.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Video Editing</span>
+                    </div>
+                </div>
+
+                <!-- Sky Dreamers -->
+                <div class="glass-container p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl">Sky Dreamers</h2>
+                        <a href="https://skydreamers.co.uk" target="_blank" rel="noopener noreferrer" class="text-sm tag">
+                            <i class="fa-solid fa-link mr-2"></i>Visit Site
+                        </a>
+                    </div>
+                    <p class="mb-4">Band member and web developer for Sky Dreamers, combining musical talent with website development.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Music</span>
+                    </div>
+                </div>
+
+                <!-- PIKD -->
+                <div class="glass-container p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl">PIKD</h2>
+                        <a href="https://pikd.nl" target="_blank" rel="noopener noreferrer" class="text-sm tag">
+                            <i class="fa-solid fa-link mr-2"></i>Visit Site
+                        </a>
+                    </div>
+                    <p class="mb-4">Founder and developer of PIKD, a record label working with emerging artists.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Record Label</span>
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Music Industry</span>
+                    </div>
+                </div>
+
+                <!-- Luminescent Records -->
+                <div class="glass-container p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl">Luminescent Records</h2>
+                        <a href="https://luminescent.uk" target="_blank" rel="noopener noreferrer" class="text-sm tag">
+                            <i class="fa-solid fa-link mr-2"></i>Visit Site
+                        </a>
+                    </div>
+                    <p class="mb-4">Founder and developer of Luminescent Records, managing artists and creating an online presence for the label.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Record Label</span>
+                        <span class="tag">Web Development</span>
+                    </div>
+                </div>
+
+                <!-- Counterfeit Ghost -->
+                <div class="glass-container p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl">Counterfeit Ghost</h2>
+                        <a href="https://counterfeitghost.com" target="_blank" rel="noopener noreferrer" class="text-sm tag">
+                            <i class="fa-solid fa-link mr-2"></i>Visit Site
+                        </a>
+                    </div>
+                    <p class="mb-4">Manager and web developer for Counterfeit Ghost.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Artist Management</span>
+                        <span class="tag">Web Development</span>
+                    </div>
+                </div>
+
+                <!-- Rayen Noth -->
+                <div class="glass-container p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl">Rayen Noth</h2>
+                        <a href="https://rayennoth.com" target="_blank" rel="noopener noreferrer" class="text-sm tag">
+                            <i class="fa-solid fa-link mr-2"></i>Visit Site
+                        </a>
+                    </div>
+                    <p class="mb-4">My personal music project where I create and produce indie rock music, complete with a custom-built website.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Music Production</span>
+                        <span class="tag">Web Development</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub Section -->
+            <div class="mt-12 glass-container p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 class="text-3xl">Open Source Work</h2>
+                    <a href="https://github.com/35socks" target="_blank" rel="noopener noreferrer" class="text-sm tag">
+                        <i class="fa-brands fa-github mr-2"></i>View GitHub
+                    </a>
+                </div>
+                <p class="text-lg">Check out my GitHub profile to see my open-source contributions and personal projects. I'm always working on new web development tools and exploring different technologies.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
